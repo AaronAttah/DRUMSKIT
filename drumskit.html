@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drumskit</title>
+</head>
+<link rel="stylesheet" href="drumskit.css">
+<body>
+   <div id="back-pix">
+         <div class="keys">
+
+                    <div data-key="65" class="key"  id="keya">
+                        <kbd>A</kbd><br>
+                        <span>clap</span>
+                    </div>
+
+                    <div data-key="83" class="key" >
+                        <kbd>S</kbd><br>
+                        <span>hihat</span>
+                    </div>
+
+                    <div data-key="68" class="key" >
+                        <kbd>D</kbd><br>
+                        <span>kick</span>
+                    </div>
+
+                    <div data-key="70" class="key"  >
+                        <kbd>F</kbd><br>
+                        <span>openhat</span>
+                    </div>
+
+                    <div data-key="71" class="key" >
+                        <kbd>G</kbd><br>
+                        <span>boom</span>
+                    </div>
+
+                    <div data-key="72" class="key" >
+                        <kbd>H</kbd><br>
+                        <span>Ride</span>
+                    </div>
+
+                    <div data-key="74" class="key" >
+                        <kbd>J</kbd><br>
+                        <span>snare</span>
+                    </div>
+
+                    <div data-key="75" class="key" >
+                        <kbd>K</kbd><br>
+                        <span>tom</span>
+                    </div>
+                     
+                    <div data-key="76" class="key"  >
+                        <kbd>L</kbd><br>
+                        <span>tink</span>
+                    </div>
+
+         </div>
+  </div>
+        <audio data-key="65" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/clap.wav"></audio>
+        <audio data-key="83" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/hihat.wav"></audio>
+        <audio data-key="68" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/kick.wav"></audio>
+        <audio data-key="70" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/openhat.wav"></audio>
+        <audio data-key="71" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/boom.wav"></audio>
+        <audio data-key="72" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/ride.wav"></audio>
+        <audio data-key="74" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/snare.wav"></audio>
+        <audio data-key="75" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/tom.wav"></audio>
+        <audio data-key="76" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/tink.wav"></audio>
+
+
+
+  
+<script>
+     window.addEventListener('keydown', function(e){
+    const audio= document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+   
+    if(!audio) return; // stop the function from running...
+    audio.currentTime = 0; //rewind to the start
+    audio.play();
+    key.classList.add('playing'); 
+});  
+
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return; // skip it if its not a transform
+  this.classList.remove('playing');
+     }
+
+
+
+const keys = document.querySelectorAll(' .key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+</script>
+</body>
+</html>
