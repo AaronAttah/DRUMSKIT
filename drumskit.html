@@ -6,22 +6,25 @@
 </head>
 <link rel="stylesheet" href="drumskit.css">
 <body>
-   <div id="back-pix">
+   <div id="back-pix" class="Classback-pix">  
+    <div class="text">welcome to the virtual drum trial press the keypads for sounds</div> 
+
+
          <div class="keys">
 
-                    <div data-key="65" class="key"  id="keya">
+                    <div data-key="65" class="key"  >
                         <kbd>A</kbd><br>
-                        <span>clap</span>
+                        <span class="keya">clap</span>
                     </div>
 
                     <div data-key="83" class="key" >
                         <kbd>S</kbd><br>
-                        <span>hihat</span>
+                        <span class="keya">hihat</span>
                     </div>
 
                     <div data-key="68" class="key" >
                         <kbd>D</kbd><br>
-                        <span>kick</span>
+                        <span class="keya"> kick</span>
                     </div>
 
                     <div data-key="70" class="key"  >
@@ -55,6 +58,7 @@
                     </div>
 
          </div>
+
   </div>
         <audio data-key="65" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/clap.wav"></audio>
         <audio data-key="83" src="https://raw.githubusercontent.com/deepakkarki/js-projects/master/01-js-drum-kit/sounds/hihat.wav"></audio>
@@ -87,9 +91,18 @@ function removeTransition(e) {
 
 
 
-const keys = document.querySelectorAll(' .key');
+     const keys = document.querySelectorAll('.key');
+     const keya = document.querySelectorAll(".keya")
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
+
+keya.forEach(keyas => keyas.addEventListener("click", ckickable))
+
+function ckickable(e) {
+    e.preventDefault()
+    console.log(" i was clicked") 
+}
+
 </script>
-</body>
+</body> 
 </html>
