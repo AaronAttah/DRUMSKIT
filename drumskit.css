@@ -16,7 +16,9 @@ body{
 
 #back-pix{ 
   background-repeat: no-repeat; 
-  background-image: url('concert-hall.jpg'); 
+  object-fit: fill;
+  background-image: url('beat.jpg'); 
+  background-size: 100% 100vh;
   width: 100%; 
   height: 100vh;
 }
@@ -65,7 +67,7 @@ kbd{
 @media (max-width: 768px) {
   #back-pix{ 
     background-repeat: repeat; 
-    background-image: url('concert-hall.jpg'); 
+    background-image: url('beat.jpg'); 
     width: 100%; 
     height: 127vh;
   }
